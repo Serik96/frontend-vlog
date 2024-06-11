@@ -1,19 +1,19 @@
-import Container from "@mui/material/Container";
+import Container from '@mui/material/Container'
 
-import { Header } from "./components";
-import { Home, FullPost, Registration, AddPost, Login } from "./pages";
-import { Route, Routes } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchAuthMe, selectIsAuth } from "./redux/slices/auth";
-import { useEffect } from "react";
+import { Header } from './components'
+import { Home, FullPost, Registration, AddPost, Login } from './pages'
+import { Route, Routes } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchAuthMe, selectIsAuth } from './redux/slices/auth'
+import { useEffect } from 'react'
 
 function App() {
-  const dispatch = useDispatch();
-  const isAuth = useSelector(selectIsAuth);
+  const dispatch = useDispatch()
+  const isAuth = useSelector(selectIsAuth)
 
   useEffect(() => {
-    dispatch(fetchAuthMe());
-  }, []);
+    dispatch(fetchAuthMe())
+  }, [])
 
   return (
     <>
@@ -29,7 +29,7 @@ function App() {
         </Routes>
       </Container>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

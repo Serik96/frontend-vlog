@@ -1,29 +1,29 @@
-import React from "react";
-import Button from "@mui/material/Button";
+import React from 'react'
+import Button from '@mui/material/Button'
 
-import styles from "./Header.module.scss";
-import Container from "@mui/material/Container";
-import { Link } from "react-router-dom";
-import { logout, selectIsAuth } from "../../redux/slices/auth";
-import { useDispatch, useSelector } from "react-redux";
+import styles from './Header.module.scss'
+import Container from '@mui/material/Container'
+import { Link } from 'react-router-dom'
+import { logout, selectIsAuth } from '../../redux/slices/auth'
+import { useDispatch, useSelector } from 'react-redux'
 
 export const Header = () => {
-  const dispatch = useDispatch();
-  const isAuth = useSelector(selectIsAuth);
+  const dispatch = useDispatch()
+  const isAuth = useSelector(selectIsAuth)
 
   const onClickLogout = () => {
-    if (window.confirm("Вы действительно хотите выйти")) {
-      dispatch(logout());
-      window.localStorage.removeItem("token");
+    if (window.confirm('Вы действительно хотите выйти')) {
+      dispatch(logout())
+      window.localStorage.removeItem('token')
     }
-  };
+  }
 
   return (
     <div className={styles.root}>
       <Container maxWidth="lg">
         <div className={styles.inner}>
           <Link className={styles.logo} to="/">
-            <div>SERIK BLOG</div>
+            <div>CHAT BLOG</div>
           </Link>
           <div className={styles.buttons}>
             {isAuth ? (
@@ -31,11 +31,7 @@ export const Header = () => {
                 <Link to="/add-post">
                   <Button variant="contained">Написать статью</Button>
                 </Link>
-                <Button
-                  onClick={onClickLogout}
-                  variant="contained"
-                  color="error"
-                >
+                <Button onClick={onClickLogout} variant="contained" color="error">
                   Выйти
                 </Button>
               </>
@@ -53,5 +49,5 @@ export const Header = () => {
         </div>
       </Container>
     </div>
-  );
-};
+  )
+}
